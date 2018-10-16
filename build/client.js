@@ -9,7 +9,6 @@ function resolve (dir) {
 }
 module.exports = merge(base, {
   entry: {
-    // app: resolve('./src/entry-client.js')
     app: resolve('./lib/entry/entry-client.js')
   },
   resolve: {
@@ -28,10 +27,5 @@ module.exports = merge(base, {
       chunks: 'all'
     },
     runtimeChunk: true
-  },
-  devServer: {
-    hot: true,
-    compress: true,
-    port: 4444
   }
 })

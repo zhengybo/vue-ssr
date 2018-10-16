@@ -11,6 +11,9 @@ export default {
     return {
       name : '123dasd231213'
     }
+  },
+  title(){
+    return '主页'
   }
 }
 </script>

@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
+import mixin from './mixin'
 import createStore from './store'
 import createRouter from './router'
-import mixin from './mixin'
 import { sync } from 'vuex-router-sync'
 
-Vue.mixin(mixin)
+Vue.mixin(...mixin)
 
 export default function createApp () {
 

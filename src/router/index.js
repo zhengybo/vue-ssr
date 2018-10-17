@@ -8,8 +8,8 @@ Vue.use(Router)
 export default () =>  {
   return new Router({
     mode: 'history',
-    // fallback: false,
-    // scrollBehavior: () => ({ y: 0 }),
+    fallback: false,
+    scrollBehavior: () => ({ y: 0 }),
     routes: [
       { path: '/', redirect: '/home' },
       { path: '/home', component : Home },

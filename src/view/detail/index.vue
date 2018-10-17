@@ -12,6 +12,9 @@ export default {
 
     }
   },
+  title(){
+    return '详情'
+  },
   computed : {
     test(){
       return this.$store.state.user.token

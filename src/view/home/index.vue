@@ -1,7 +1,9 @@
 <template lang="html">
   <div class="">
-  {{name}}1as123131131qwe233123
-  <router-link to="/detail">asdaqwqes</router-link>
+    <div class="name">
+      {{name}}1as123131131qwe233123dsqweas123我的
+    </div>
+    <router-link to="/detail">asdaqwqes</router-link>
   </div>
 </template>
 
@@ -18,5 +20,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+  .name{
+    color: red;
+    background: green;
+    position: absolute;
+    transform: rotate(90deg);
+  }
 </style>

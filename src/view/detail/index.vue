@@ -12,10 +12,10 @@ export default {
 
     }
   },
+  title(){
+    return '详情'
+  },
   computed : {
-    title(){
-      return '-123213'
-    },
     test(){
       return this.$store.state.user.token
       // return this.$store.user.token

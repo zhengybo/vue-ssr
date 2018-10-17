@@ -1,0 +1,87 @@
+/*
+  公用方法
+*/
+
+%igone{
+  text-overflow: ellipsis;;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+%middle{
+  position: absolute;
+  margin:auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+
+//多行文本隐藏
+@mixin cigone($line){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:line;
+}
+
+//三角制作
+@mixin toggle($dt,$W,$H,$color){//方向
+	width: 0;
+	height: 0;
+	@if ($dt=="left") or ($dt=="right"){
+		border-top: $W/2 solid transparent;
+		border-bottom: $W/2 solid transparent;
+		@if ($dt=="left"){
+			border-right:$H solid $color;
+		}@else {
+			border-left:$H solid $color;
+		}
+	}@else if ($dt=="up") or ($dt=="down"){
+		border-left: $W/2 solid transparent;
+		border-right: $W/2 solid transparent;
+		@if ($dt=="up"){
+			border-bottom:$H solid $color;
+		}@else {
+			border-top:$H solid $color;
+		}
+	}
+}
+
+//条纹制作
+@mixin stripe($dr,$w,$h,$counts,$sColor,$eColor){//方向 宽 、高、数量、始色、间色
+	width: $w;
+	height: $h;
+	@if($dr == 'vt'){
+		background: linear-gradient(90deg,$sColor 50%, $eColor 50%);
+		background-size:$w*2/$counts 100%;
+	}@else{
+		background: linear-gradient($sColor 60%, $eColor  40%);
+		background-size: 100% $h*2/$counts;
+	}
+}
+
+@mixin arabesquitic(){
+  background: #655;
+  background-image: radial-gradient(tan 30%, transparent 0),
+  radial-gradient(tan 30%, transparent 0);
+  background-size: 30px 30px;
+  // background-position: 0 0, 15px 15px;
+}
+
+
+@mixin transform($hover:none,$active:none){//过渡悬浮问题
+  &:hover{
+    transform: $hover;
+  }
+	&:active{
+    transform: $active;
+  }
+}
+
+@mixin whb($w:auto,$h:auto,$b:inherit){// 宽 高背景
+  width: $w;
+  height: $h;
+  background-color: $b;
+}

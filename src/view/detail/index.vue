@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    {{test}}----
+    {{test}}----123
   </div>
 </template>
 
@@ -11,9 +11,6 @@ export default {
     return {
 
     }
-  },
-  title(){
-    return '详情'
   },
   computed : {
     test(){

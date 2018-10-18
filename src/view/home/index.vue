@@ -1,9 +1,11 @@
 <template lang="html">
   <div class="">
     <div class="name">
-      {{name}}1as123131131qwe233123dsqweas123我的
+      {{name}}123213
     </div>
-    <router-link to="/detail">asdaqwqes</router-link>
+    <router-view></router-view>
+    <router-link to="/home/news1">新闻页</router-link>
+    <router-link to="/detail">详情</router-link>
   </div>
 </template>
 
@@ -13,9 +15,6 @@ export default {
     return {
       name : '123dasd231213'
     }
-  },
-  title(){
-    return '主页'
   }
 }
 </script>

@@ -1,26 +1,17 @@
-function getTitle (vm) {
-  const { title } = vm.$options
-  if (title) {
-    return typeof title === 'function'
-      ? title.call(vm)
-      : title
-  }
-}
 
 const serverTitleMixin = {
   created () {
-    const title = getTitle(this)
-    if (title) {
-      this.$ssrContext.title = title
+    if(this.$ssrContext){
+      this.$ssrContext.title = this.$route.meta.title || '';
     }
   }
 }
 
 const clientTitleMixin = {
   mounted () {
-    const title = getTitle(this)
+    let title = this.$route.meta.title;
     if (title) {
-      document.title = title
+      document.title = title || ''
     }
   }
 }

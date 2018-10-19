@@ -1,4 +1,5 @@
-
+import apis from '@/api'
+// console.log(apis);
 const user = {
   state: {
     token : '123',
@@ -8,8 +9,8 @@ const user = {
     SET_TOKEN: (state, token) => {
       state.token = token || '';
     },
-    SET_URSER_INFO: (state, token) => {
-      state.token = token || '';
+    SET_URSER_INFO: (state, userinfo) => {
+      state.userinfo = userinfo || {};
     },
   },
 
@@ -26,9 +27,9 @@ const user = {
         resolve();
       })
     },
-    getUserInfo({ store, commit }){
-      return store.dispatch('fetch', {}).then(data => {
-        commit('SET_URSER_INFO', data);
+    getUserInfo({ dispatch, commit }){
+      return dispatch('fetch', apis.user.getUserInfo).then(data => {
+        commit('SET_URSER_INFO', data.data);
       })
     }
   }

@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="">
-    我是头部
+  <div id="footer" class="">
+    我是底部111
   </div>
 </template>
 
@@ -9,5 +9,9 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+#footer{
+  position: absolute;
+  bottom: 0;
+}
 </style>

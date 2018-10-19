@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './../view/home'
-import News from './../view/home/news'
-import Detail from './../view/detail'
-import Error404 from './../view/404'
+import Error404 from '@/view/lib/404'
+
+import Main from '@/view/main'
+import Consultation from '@/view/main/consultation'
+import Home from '@/view/main/home'
 Vue.use(Router)
 
 export default () =>  {
@@ -14,36 +15,36 @@ export default () =>  {
     routes: [
       {
         path: '/',
-        redirect: '/home',
+        redirect: '/main',
         meta : {
-          title : '首页'
+          title : '首页2sada11'
         }
       },
       {
-        path: '/home',
-        component : Home,
-        name : 'home',
+        path: '/main',
+        redirect: '/home',
+        component : Main,
+        meta : {
+          title : '首页112'
+        },
         children : [
           {
-            path: '/home/news',
-            name : 'news',
-            component : News,
+            path: '/home',
+            component : Home,
+            name : 'home',
             meta : {
-              title : '新闻业'
+              title : '首页'
+            }
+          },
+          {
+            path: '/main/consultation',
+            component : Consultation,
+            name : 'consultation',
+            meta : {
+              title : '咨询'
             }
           }
-        ],
-        meta : {
-          title : '首页'
-        }
-      },
-      {
-        path: '/detail',
-        component : Detail,
-        name : 'detail',
-        meta : {
-          title : '详情'
-        }
+        ]
       },
       {
         path: '/404',

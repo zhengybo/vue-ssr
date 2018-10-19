@@ -1,12 +1,11 @@
 <template lang="html">
   <div class="">
-    这是新闻页
+    聊天qw
   </div>
 </template>
 
 <script>
 export default {
-  title : '新闻业'
 }
 </script>
 

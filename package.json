@@ -51,6 +51,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "koa": "^2.5.3",
     "koa-router": "^7.4.0",

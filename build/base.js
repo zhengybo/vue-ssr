@@ -17,13 +17,15 @@ module.exports = {
   output: {
     path: resolve('./dist'),
     publicPath: '/dist/',
-    filename: '[name].[chunkhash].js'
+    filename: 'js/[name].[chunkhash].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('./src'),
-    }
+      'root': resolve('./')
+    },
+    modules : ['node_modules', resolve('./src/scss')]
   },
   module: {
     rules: [
@@ -87,8 +89,8 @@ module.exports = {
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.HashedModuleIdsPlugin(),
       new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].[chunkhash].css"
+        filename: "css/[name].css",
+        chunkFilename: "css/[id].[chunkhash].css"
       }),
       new OptimizeCSSAssetsPlugin({}),
       // new HtmlWebpackPlugin({

@@ -1,7 +1,8 @@
 import koa from 'koa'
 import router from './router'
+import config from './config'
 let app = new koa();
-require('./config')(app)
+app.config = config;
 require('./lib')(app)
 router(app)
 .listen(7777, () => {

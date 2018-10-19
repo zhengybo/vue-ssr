@@ -1,14 +1,17 @@
-
+import apis from '@/api'
+// console.log(apis);
 const user = {
   state: {
     token : '123',
-    firstHint : false //首次登陆提示
+    userinfo : {}
   },
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token || '';
     },
-
+    SET_URSER_INFO: (state, userinfo) => {
+      state.userinfo = userinfo || {};
+    },
   },
 
   actions: {
@@ -22,6 +25,11 @@ const user = {
         commit('SET_USERNAME');
         commit('SET_USERINFO');
         resolve();
+      })
+    },
+    getUserInfo({ dispatch, commit }){
+      return dispatch('fetch', apis.user.getUserInfo).then(data => {
+        commit('SET_URSER_INFO', data.data);
       })
     }
   }

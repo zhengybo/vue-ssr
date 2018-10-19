@@ -1,14 +1,9 @@
-import dirs from './dir'
-const config = {
-  ssr : {
+import server from './server'
+import client from './client'
+import common from './common'
 
-  },
-  setup : {
-
-  },
-  dirs
+export default {
+  ...client,
+  ...server,
+  ...common
 }
-
-
-
-module.exports = app => (app.config = config)

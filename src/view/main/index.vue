@@ -1,16 +1,17 @@
 <template lang="html">
-  <div id="app" class="">
+  <layout>
     <router-view></router-view>
-  </div>
+  </layout>
 </template>
 
 <script>
-
+import layout from '@/view/layout'
 export default {
-
+  components : {
+    layout
+  }
 }
 </script>
 
-<style lang="scss">
-  @import 'scss/public/style.scss';
+<style lang="css">
 </style>

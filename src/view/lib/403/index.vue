@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    404 你妹有找到
+    403
   </div>
 </template>
 

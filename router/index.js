@@ -8,11 +8,20 @@ export default (app) => {
       ctx.redirect('/404')
       return;
     }
-    ctx.throw(500)；
+    ctx.throw(500);
   }
 
   router.get(/^(?!\/(api|dist|404))\/*/, async (ctx) => {
     await ctx.render(ctx);
+  })
+
+  router.get('/api/getUserInfo', async (ctx) => {
+    ctx.body = {
+      code : 1,
+      data : {
+        name : '我叫mmv'
+      }
+    }
   })
 
   router.get('/404', async (ctx) => {

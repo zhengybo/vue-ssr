@@ -15,7 +15,16 @@ const http = store => options => {
 
   isBody && Object.assign(headers, {'Content-Type' : 'application/json' });
 
-  return axios({ url, method, data, params, headers })
-        .then(res => res.data).catch(err => console.log(err));
+  return new Promise((resolve, reject) => {
+    axios({ url, method, data, params, headers })
+    .then(res => res.data)
+    .then(data => {
+      if(data.code == 0){
+        resolve(data)
+      }
+      reject({})
+    })
+    .catch(err => console.log(err))
+  });
 }
 export { http }

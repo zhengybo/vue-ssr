@@ -7,10 +7,13 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 function resolve (dir) {
   return path.resolve(__dirname, '..', dir)
 }
+const isProd = process.env.NODE_ENV === 'production'
+let entry = { app: resolve('./lib/entry/entry-client.js') }
+if(isProd){
+  entry.app = [ entry.app ];
+}
 module.exports = merge(base, {
-  entry: {
-    app: resolve('./lib/entry/entry-client.js')
-  },
+  entry,
   resolve: {
 
   },

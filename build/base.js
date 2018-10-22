@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -14,6 +14,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: 'production',
+  devtool: isProd ? false : '#cheap-module-source-map',
   output: {
     path: resolve('./dist'),
     publicPath: '/dist/',
@@ -83,6 +84,12 @@ module.exports = {
     ]
 
   },
+  // externals: {
+  //   'vue': 'Vue',
+  //   'vue-router': 'VueRouter',
+  //   'vuex': 'Vuex',
+  //   'axios': 'axios'
+  // },
   plugins : [
     new VueLoaderPlugin(),
     ...(isProd ? [
@@ -93,16 +100,16 @@ module.exports = {
         chunkFilename: "css/[id].[chunkhash].css"
       }),
       new OptimizeCSSAssetsPlugin({}),
-      // new HtmlWebpackPlugin({
-      //   filename: resolve('./dist/index.html'),
-      //   template: resolve('./lib/index.html'),
-      //   inject: true,
-      //   minify: {
-      //     removeComments: false, // vue 插槽不能被去除
-      //     collapseWhitespace: true,
-      //     removeAttributeQuotes: true
-      //   }
-      // })
+      new HtmlWebpackPlugin({
+        filename: resolve('./dist/index.html'),
+        template: resolve('./lib/index.html'),
+        inject: false, // ssr 不需要输出css script 插入
+        minify: {
+          removeComments: false, // vue 插槽不能被去除
+          collapseWhitespace: true,
+          removeAttributeQuotes: true
+        }
+      })
     ] : [
       new FriendlyErrorsPlugin()
     ])

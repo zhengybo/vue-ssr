@@ -5,7 +5,13 @@
 </template>
 
 <script>
+import { Cookie } from '@/js/public'
 export default {
+  mounted(){
+    console.log('?????');
+    console.log(Cookie.getCookie('abc'));
+    Cookie.setCookie('abc','123')
+  }
 }
 </script>
 

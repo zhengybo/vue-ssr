@@ -1,19 +1,20 @@
+/* 一个 warning ->  tapable.plugin is deprecated  忽略它 */
+process.noDeprecation = true;
 const path = require('path')
 const webpack = require('webpack')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const { VueLoaderPlugin } = require('vue-loader')
 
-function resolve (dir) {
-  return path.resolve(__dirname, '..', dir)
-}
+const resolve =  dir => path.resolve(__dirname, '..', dir);
 
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: 'production',
+  devtool: isProd ? false : '#cheap-module-source-map',
   output: {
     path: resolve('./dist'),
     publicPath: '/dist/',
@@ -86,23 +87,15 @@ module.exports = {
   plugins : [
     new VueLoaderPlugin(),
     ...(isProd ? [
+      new ProgressBarPlugin({ summary : false }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.HashedModuleIdsPlugin(),
       new MiniCssExtractPlugin({
         filename: "css/[name].css",
         chunkFilename: "css/[id].[chunkhash].css"
       }),
-      new OptimizeCSSAssetsPlugin({}),
-      // new HtmlWebpackPlugin({
-      //   filename: resolve('./dist/index.html'),
-      //   template: resolve('./lib/index.html'),
-      //   inject: true,
-      //   minify: {
-      //     removeComments: false, // vue 插槽不能被去除
-      //     collapseWhitespace: true,
-      //     removeAttributeQuotes: true
-      //   }
-      // })
+      new OptimizeCSSAssetsPlugin({})
+
     ] : [
       new FriendlyErrorsPlugin()
     ])

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    我是头部1213123
+    我是头部sad
   </div>
 </template>
 

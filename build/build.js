@@ -13,7 +13,7 @@ const clientConfig = require('./client')
 const serverConfig = require('./server')
 
 const isProd = process.env.NODE_ENV === 'production'
-const resolve =  dir => path.resolve(__dirname, '..', dir);
+const resolve = dir => path.resolve(__dirname, '..', dir);
 
 const runWebpack =  (config) => {
   return new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ if(isProd){
     if(err) throw err;
     webpack(dllConfig, () => {
       console.log(chalk.cyan.bold('  dll has been build!\n'))
-      console.log(chalk.yellow.bold('  waiting for client start...\n'))
+      console.log(chalk.yellow.bold('  waiting for server start...\n'))
       require('./../index');
     })
   })

@@ -1,14 +1,29 @@
 <template lang="html">
-  <div class="">
-    {{userinfo.name}}
-    <router-view></router-view>
-    <router-link :to="{ name : 'consultation' }">聊天131</router-link>
-    <router-link :to="{ name : 'consultation' }">产品</router-link>
-  </div>
+  <full-page>
+    <div :style="{backgroundColor : '#11192e'}" class="full-swaper-item">
+      <img class="bg-tcb" :src="'./public/bg-1.jpg'" alt="">
+    </div>
+    <div :style="{backgroundColor : 'blue'}" class="full-swaper-item">
+      456
+    </div>
+    <div :style="{backgroundColor : 'green'}" class="full-swaper-item">
+      456
+    </div>
+    <div :style="{backgroundColor : 'gray'}" class="full-swaper-item">
+      456
+    </div>
+    <div :style="{backgroundColor : 'yellow'}" class="full-swaper-item">
+      456
+    </div>
+    <div :style="{backgroundColor : 'cyan'}" class="full-swaper-item">
+      <layout-footer></layout-footer>
+    </div>
+  </full-page>
 </template>
 
 <script>
 import apis from '@/api'
+import layoutFooter from './../../layout/footer'
 export default {
   asyncData({store,route}){
     return store.dispatch('getUserInfo')
@@ -24,13 +39,18 @@ export default {
     }
   },
   mounted(){
-    this.$http(apis.user.getUserInfo).then(data => {
-      console.log(data);
-    })
+    // this.$http(apis.user.getUserInfo).then(data => {
+    //   console.log(data);
+    // })
+  },
+  components : {
+    layoutFooter
   }
 }
 </script>
 
 <style lang="scss">
-
+  .bg-tcb{
+    height: 100%;
+  }
 </style>

@@ -1,2 +1,4 @@
+import Str from './str'
 import Cookie from './cookie'
-export { Cookie }
+import Browser from './browser'
+export { Cookie, Str, Browser }

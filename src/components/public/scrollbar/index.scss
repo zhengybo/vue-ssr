@@ -1,0 +1,63 @@
+.observer{
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.scroll-contain{
+  height: 100%;
+  position: relative;
+  &:hover{
+    .hoverBar.bar-contain {
+      opacity: 1;
+    }
+  }
+}
+
+.alwaysBar.bar-contain{
+  opacity: 1;
+}
+.hidenOver{
+  overflow: hidden;
+}
+.scroll-warper{
+  transition:transform 0.3s cubic-bezier(.3,1,.22,1);
+  position: absolute;
+  width: 100%;
+}
+.bar-contain{
+  position: absolute;
+  transition: opacity 0.3s ease;
+  top: 0;
+  right: 1px;
+  height: 100%;
+  opacity: .1;
+}
+.scroll-bar{
+  width: 5px;
+  border-radius: 50px;
+  transition:all 0.5s cubic-bezier(.3,1,.22,1);
+  background-color: rgba(200,200,200,.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity : 0.5;
+  cursor: pointer;
+  &:hover{
+    opacity: 1;
+  }
+}
+.bigger{
+  &:hover{
+    width: 10px;
+  }
+}
+.mouseBar{
+  transition:opacity 0.5s cubic-bezier(.3,1,.22,1);
+  user-select:none;
+  width: 10px;
+}

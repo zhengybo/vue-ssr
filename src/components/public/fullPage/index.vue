@@ -1,10 +1,16 @@
 <!-- 一个简易的fullpage组件 兼容ie9 -->
 <template lang="html">
   <div @wheel.stop.prevent="wheel" class="full-contain">
-    <div :style="{
-      'transform' : `translateY(${position}px)`,
-      '-ms-transform' : `translateY(${position}px)`
-      }" ref="swaper" class="full-swaper">
+    <div
+      :style="{
+        'transform' : `translateY(${position}px)`,
+        '-ms-transform' : `translateY(${position}px)`
+      }"
+      ref="swaper"
+      :class="{
+        'full-swaper' : true,
+        'transition-swaper' : allowTransition
+        }">
       <slot></slot>
     </div>
   </div>
@@ -21,7 +27,7 @@ export default {
     defaultIndex : {
       type : Number,
       default : 0
-    }
+    },
   },
   data(){
     return {
@@ -30,7 +36,9 @@ export default {
       itemLength : 0,
       pageHeight : 0,
       currentIndex : 0,
-      transition : null
+      transition : null,
+      _resize : null,
+      allowTransition : false
     }
   },
   created(){
@@ -39,6 +47,10 @@ export default {
   },
   mounted(){
     this.initEvent();
+    setTimeout(() => { // hack 基于足够的transform设置时间， $nextTick 无效
+      this.pending = false;
+      this.allowTransition = true;
+    },50)
   },
   watch : {
     currentIndex(){
@@ -64,17 +76,24 @@ export default {
     initEvent(){ // 初始化事件
 
       this.setPageHeight();
-
-      window.addEventListener('resize', (e) => {
-        this.setPageHeight();
-        this.setTransform();
-      })
+      this.setTransform();
+      this._resize = this.resize.bind(this);
+      window.addEventListener('resize', this._resize)
 
       this.transition = whichTransitionEvent();
       if(this.transition){
-        this.$refs.swaper.addEventListener(this.transition,e => this.transitionEnd(this.currentIndex));
+        this.$refs.swaper.addEventListener(this.transition,e => {
+          this.transitionEnd(this.currentIndex)
+        });
       }
 
+    },
+    resize(){
+      let lastHeight = this.pageHeight;
+      this.setPageHeight();
+      if(lastHeight != this.pageHeight && this.currentIndex != 0){ // 高度不变不需要 变换
+        this.setTransform();
+      }
     },
     wheel(e){ // 滚动
       let delta = e.wheelDelta || -e.deltaY ; // 方向确认
@@ -114,12 +133,17 @@ export default {
       })
     },
     setIndex(index){ // 设置第几个
+      index = +index;
       if(!this.checkScroll(index)) return;
       this.currentIndex = index;
     },
     checkScroll(index){ // 检查时候发生实际滚动
       return (index >= 0 && index < this.itemLength) && this.currentIndex != index;
     }
+  },
+
+  beforeDestroy(){
+    window.removeEventListener('resize',this._resize);
   }
 }
 </script>
@@ -132,12 +156,14 @@ export default {
       width: 100%;
       position: absolute;
       transform: translateY(-0px);
-      transition: all 700ms ease;
     }
     .full-swaper-item{
       height: 100%;
       overflow: hidden;
       position: relative;
+    }
+    .transition-swaper{
+      transition: all 600ms ease;
     }
   }
 </style>

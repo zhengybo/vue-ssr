@@ -1,0 +1,77 @@
+// 透明
+.fade-enter-active,.fade-leave-active{
+	transition: opacity 0.5s linear;
+}
+.fade-enter{
+	opacity: 0;
+}
+.fade-enter-to{
+	opacity: 1;
+}
+.fade-leave{
+	opacity: 1;
+}
+.fade-leave-to {
+	opacity: 0;
+}
+
+// 卡片
+.transform-enter-active,.transform-leave-active{
+	transition: transform .5s ease;
+}
+.transform-enter{
+	transform: translateX(100%);
+}
+.transform-enter-to{
+	transform: translateX(0%);
+}
+.transform-leave{
+	transform: translateX(0%);
+}
+.transform-leave-to{
+	transform: translateX(-100%);
+}
+
+// 压切
+.scale-enter-active{
+  transform-origin : top left;
+	transition: transform .5s ease;
+}
+.scale-leave-active {
+  transform-origin : top right;
+	transition: transform .5s ease;
+}
+.scale-enter{
+	transform: scale(0);
+}
+.scale-enter-to{
+	transform: scale(1);
+}
+.scale-leave{
+	transform: scale(1);
+}
+.scale-leave-to{
+	transform: scale(0);
+}
+
+
+// 3d切换
+.cube-enter-active,.cube-leave-active{
+  transform-style: preserve-3d;
+  perspective-origin : center center;
+	transition: transform .5s linear;
+  backface-visibility: hidden;
+  transform-origin : center center -500px;
+}
+.cube-enter{
+	transform: rotateY(-90deg);
+}
+.cube-enter-to{
+	transform: rotateY(0deg);
+}
+.cube-leave{
+	transform: rotateY(0deg);
+}
+.cube-leave-to{
+	transform: rotateY(90deg);
+}

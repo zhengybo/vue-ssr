@@ -1,15 +1,15 @@
 <template lang="html">
   <layout>
-    <router-view></router-view>
+    <transition name="fade" >
+      <router-view></router-view>
+    </transition>
   </layout>
 </template>
 
 <script>
-import layout from '@/view/layout'
+
 export default {
-  components : {
-    layout
-  }
+
 }
 </script>
 

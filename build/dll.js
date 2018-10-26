@@ -46,6 +46,7 @@ module.exports = {
         name: "dll_[chunkhash]",
         context: resolve('./')
       }),
+      new webpack.HashedModuleIdsPlugin(),
       new ProgressBarPlugin({ summary : false })
 　　]
 };

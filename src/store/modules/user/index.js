@@ -1,5 +1,4 @@
 import apis from '@/api'
-// console.log(apis);
 const user = {
   state: {
     token : '123',

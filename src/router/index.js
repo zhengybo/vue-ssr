@@ -4,6 +4,7 @@ import Error404 from '@/view/lib/404'
 
 import Main from '@/view/main'
 import Consultation from '@/view/main/consultation'
+import Product from '@/view/main/product'
 import Home from '@/view/main/home'
 Vue.use(Router)
 // 兼容ie9 临时处理(如果scrollBehavior启用)
@@ -24,30 +25,28 @@ export default () =>  {
         }
       },
       {
-        path: '/main',
-        redirect: '/home',
-        component : Main,
+        path: '/home',
+        component : Home,
+        name : 'home',
         meta : {
-          title : '首页112'
-        },
-        children : [
-          {
-            path: '/home',
-            component : Home,
-            name : 'home',
-            meta : {
-              title : '首页'
-            }
-          },
-          {
-            path: '/main/consultation',
-            component : Consultation,
-            name : 'consultation',
-            meta : {
-              title : '咨询'
-            }
-          }
-        ]
+          title : '首页'
+        }
+      },
+      {
+        path: '/main/consultation',
+        component : Consultation,
+        name : 'consultation',
+        meta : {
+          title : '咨询'
+        }
+      },
+      {
+        path: '/product',
+        component : Product,
+        name : 'product',
+        meta : {
+          title : '产品'
+        }
       },
       {
         path: '/404',

@@ -15,7 +15,7 @@ export default {
     return {
       lists : [
         {
-          icon : '/public/￥.png',
+          icon : require('img/￥.png'),
           title : '金融服务整合',
           list : [
             '1、为你提供购车贷款、车辆抵押、车辆租赁服务',
@@ -25,7 +25,7 @@ export default {
           callback(){}
         },
         {
-          icon : '/public/user.png',
+          icon : require('img/user.png'),
           title : '车规级运维',
           list : [
             '1、前装车规级运维团队，7*24小时时时刻刻专人监控',

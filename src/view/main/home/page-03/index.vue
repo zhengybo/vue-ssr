@@ -15,7 +15,7 @@ export default {
     return {
       lists : [
         {
-          icon : '/public/baobiao.png',
+          icon : require('img/baobiao.png'),
           title : '定制报表',
           list : [
             '1、已提供40+不同类型的报表',
@@ -25,7 +25,7 @@ export default {
           callback(){}
         },
         {
-          icon : '/public/yingjian.png',
+          icon : require('img/yingjian.png'),
           title : '多类型硬件接入',
           list : [
             '1、已支持50+种类型数据、200+硬件厂家合作',

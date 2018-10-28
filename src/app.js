@@ -5,7 +5,6 @@ import createStore from './store'
 import createRouter from './router'
 import { sync } from 'vuex-router-sync'
 import { http } from './js/http'
-
 require('@/components').default(Vue) //注册全局组件
 Vue.mixin(...mixin)
 export default function createApp () {

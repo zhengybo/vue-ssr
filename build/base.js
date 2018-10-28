@@ -24,7 +24,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('./src'),
-      'root': resolve('./')
+      'root': resolve('./'),
+      'img' : resolve('./src/assets/img')
     },
     modules : ['node_modules', resolve('./src/scss')]
   },
@@ -75,8 +76,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192,
-              name: 'img/[name].[hash:7].[ext]'
+              limit: 300, // 基本不需要base64 以避免main包太大
+              name: 'img/[hash].[ext]'
             }
           }
         ]

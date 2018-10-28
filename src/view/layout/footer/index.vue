@@ -6,7 +6,7 @@
       v-for="(item, i) in lists"
       :key="i"
       :datas="item"></list>
-      <img class="erCode" src="/public/ercode.png" alt="">
+      <img class="erCode" :src="require('img/ercode.png')" alt="">
     </div>
     <div class="center ICP"> 川公网安备 51019002999742号泸ICP备16014043号-10 </div>
   </div>

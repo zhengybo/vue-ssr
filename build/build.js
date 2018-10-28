@@ -53,7 +53,6 @@ if(isProd){
     if(err) throw err;
     webpack(dllConfig, () => {
       console.log(chalk.cyan.bold('  dll has been build!\n'))
-      console.log(chalk.yellow.bold('  waiting for server start...\n'))
       require('./../index');
     })
   })

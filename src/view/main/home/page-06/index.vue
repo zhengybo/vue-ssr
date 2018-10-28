@@ -4,10 +4,10 @@
     <div class="page-06-center">
       <div class="center-inner">
         <div class="l center-left">
-          <img :src="'/public/1.jpg'" alt="">
+          <img :src="require('img/1.jpg')" alt="">
         </div>
         <div class="r center-right">
-          <img :src="'/public/2.jpg'" alt="">
+          <img :src="require('img/2.jpg')" alt="">
         </div>
       </div>
     </div>

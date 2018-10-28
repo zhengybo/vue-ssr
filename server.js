@@ -1,22 +1,24 @@
 import koa from 'koa'
 import path from 'path'
 import chalk from 'chalk'
-import mount  from 'koa-mount'
-import server  from 'koa-static'
-
+import etag from 'koa-etag'
+import mount from 'koa-mount'
+import server from 'koa-static'
+import conditional from 'koa-conditional-get'
 import router from './router'
 import config from './config'
 
 const app = new koa();
+const resource = ( dir, res, opts ) => mount(dir, server(path.join(__dirname, res), opts))
+
+console.log(chalk.yellow.bold('  waiting for server start...\n'))
 app.config = config;
-
-const { staticRes, staticDir, port } = config;
-const _staticDir = server(path.join(__dirname, staticRes));
-
 require('./lib')(app);
 router(app)
-.use(mount(staticDir, _staticDir))
-.use(mount('/public', server(path.join(__dirname, '/public'))))
+.use(conditional())
+.use(etag())
+.use(resource(config.distDir, config.distRes, config.resOpts))
+.use(resource(config.publicDir, config.publicRes, config.resOpts))
 .on('error',(err, ctx) => {
   // 在ie9 redirect('/404')时会抛出这个错误(忽略它)
   if (err.code !== 'ECONNRESET') {

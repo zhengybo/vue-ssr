@@ -15,7 +15,7 @@ export default {
     return {
       lists : [
         {
-          icon : '/public/GPS.png',
+          icon : require('img/GPS.png'),
           title : '原有GPS利用',
           list : [
             '1、对接车辆已有的GPS硬件，不需新增/改装GPS',
@@ -25,7 +25,7 @@ export default {
           callback(){}
         },
         {
-          icon : '/public/ios.png',
+          icon : require('img/ios.png'),
           title : '多终端展示',
           list : [
             '1、安卓手机',

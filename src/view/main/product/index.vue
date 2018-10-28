@@ -1,6 +1,6 @@
 <template lang="html">
   <layout class="product">
-    <div class="pd-t-60 banner"> </div>
+    <div class="pd-t-60 banner"></div>
     <list
     v-for="(item, i) in lists"
     class="mg-t-40"
@@ -17,15 +17,15 @@ export default {
     return {
       lists : [
         {
-          icon : '/public/baobiao.png',
+          icon : require('img/baobiao.png'),
           title : '车队车辆资源管理'
         },
         {
-          icon : '/public/yingjian.png',
+          icon : require('img/yingjian.png'),
           title : '车辆租债管理'
         },
         {
-          icon : '/public/yingjian.png',
+          icon : require('img/yingjian.png'),
           title : '物流车平台管理'
         }
       ]

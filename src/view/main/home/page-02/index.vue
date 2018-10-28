@@ -25,20 +25,20 @@ export default {
     return {
       lists : [
         {
-          icon : '/public/jinkong_icon.png',
+          icon : require('img/jinkong_icon.png'),
           name : '资管版',
           desc : '资管版是一款专注于车辆资产管理的SAAS平台，实时呈现车辆状态、数据报表、车辆状态通知，满足您的管车需求',
           link : '/product'
         },
         {
-          icon : '/public/ziguan_icon.png',
+          icon : require('img/ziguan_icon.png'),
           name : '金控版',
           desc : '金控版专注于贷款车辆的监控，依托大数据计算，帮助放贷公司提前判断车主行为，利用车厂数据帮助寻车',
           link : '/product'
         }
       ],
       product : {
-        icon : '/public/api.png',
+        icon : require('img/api.png'),
         title : '开放API',
         list : [
           '1、高性能、安全可靠、开放API',

@@ -1,8 +1,8 @@
 <template lang="html">
-  <div id="app" :class="{ cube : name == 'cube' }">
+  <div id="app" :class="{ cube }">
     <transition :name="name" >
       <router-view :style="{
-        'transform-origin' : name == 'cube' ? `center center -${deep}px` : 'none'
+        'transform-origin' : cube ? `center center -${deep}px` : 'none'
       }" class="absolute"></router-view>
     </transition>
   </div>
@@ -17,6 +17,11 @@ export default {
       deep : 0,
       transition,
       name : transition[this.random(0, 3)]
+    }
+  },
+  computed : {
+    cube(){
+      return this.name == 'cube'
     }
   },
   methods : {

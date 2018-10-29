@@ -1,19 +1,18 @@
 <template lang="html">
-  <div class="">
-    你什么东西都没有找到
+  <div class="center">
+    <img class="error-404" src="public/img/404.png" alt="">
   </div>
 </template>
 
 <script>
-import { Cookie } from '@/js/public'
+
 export default {
-  mounted(){
-    console.log('?????');
-    console.log(Cookie.getCookie('abc'));
-    Cookie.setCookie('abc','123')
-  }
+
 }
 </script>
 
-<style lang="css">
+<style lang="scss">
+.error-404{
+  @extend %middle;
+}
 </style>

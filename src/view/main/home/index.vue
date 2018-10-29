@@ -18,9 +18,9 @@ import page04 from './page-04'
 import page05 from './page-05'
 import page06 from './page-06'
 export default {
-  asyncData({store,route}){
-    return store.dispatch('getUserInfo')
-  },
+  // asyncData({store,route}){
+  //   return store.dispatch('getUserInfo')
+  // },
   data(){
     return {
       defaultIndex : 0

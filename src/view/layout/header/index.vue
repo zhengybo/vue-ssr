@@ -30,7 +30,7 @@ export default {
       links : [
         { name : '产品介绍', url : '/home', index : 0 },
         { name : '使用场景', url : '/home', index : 1 },
-        { name : '产生特性', url : '/home', index : 1 },
+        { name : '产品特性', url : '/home', index : 1 },
         { name : '联系我们', url : '/home', index : 5 }
       ]
     }

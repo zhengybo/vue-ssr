@@ -7,9 +7,9 @@ export default {
   publicDir : '/public', // 静态公用资源(第三方单独)
   publicRes : '/public', // 静态公用资源相对地址(第三方单独)
   resOpts : {
-    maxage : 60 * 60 * 24 * 30 // 暂定一个月
+    maxage : 60 * 60 * 24 * 30 * 1000 // 暂定一个月
   },
-  port : 7778,
+  port : 7777,
   ssr : {
 
   },

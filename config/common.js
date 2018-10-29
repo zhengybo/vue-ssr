@@ -4,6 +4,6 @@
 export default {
   requestBody : [ 'put', 'post' ],
   domain : {
-    default : 'http://127.0.0.1:7778'
+    default : 'http://127.0.0.1:7777'
   }
 }

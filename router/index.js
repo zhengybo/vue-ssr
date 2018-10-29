@@ -25,6 +25,13 @@ export default (app) => {
     ctx.throw(500);
   }
 
+  router.get(/dist\/*/, async (ctx, next) => {
+    if(!ctx.fresh){
+      ctx.set({'Cache-Control' : `max-age=${config.resOpts.maxage / 1000}`});
+    }
+    await next();
+  })
+
   router.get(/^(?!\/(api|dist|public|404))\/*/, async (ctx) => {
     if(ctx.url === '/'){
       ctx.redirect('/home')

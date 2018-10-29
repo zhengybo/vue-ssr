@@ -21,25 +21,31 @@ export default {
         {
           title : '上海总公司',
           list : [
-            { name : '李先生' },
-            { name : '021-53890000' },
-            { name : '上海市徐汇区田林路200号B座2楼钛马号' }
+            { name : '李先生', icon : require('img/contact_icon.png') },
+            { name : '021-53890000', icon : require('img/phone_icon.png') },
+            { name : '上海市徐汇区田林路200号B座2楼钛马号', icon : require('img/address_icon.png') }
           ]
         },
         {
           title : '成都分公司',
           list : [
-            { name : '赵女士' },
-            { name : '028-62350288' },
-            { name : '成都市高新区天府三街199号太平洋保险金融大厦B区11楼' }
+            { name : '赵女士', icon : require('img/contact_icon.png') },
+            { name : '028-62350288', icon : require('img/phone_icon.png') },
+            { name : '成都市高新区天府三街199号太平洋保险金融大厦B区11楼', icon : require('img/address_icon.png') }
           ]
         },
         {
           title : '关于钛马',
           list : [
-            { name : '钛马介绍' },
-            { name : '关于钛马' },
-            { name : '钛马星' }
+            {
+              name : '钛马介绍',
+              link : 'http://www.timanetworks.com/page/recruit/tima_introduce.html' },
+            {
+              name : '关于钛马',
+              link : 'http://www.timanetworks.com/home.html' },
+            {
+              name : '钛马星',
+              link : 'http://www.timanetworks.com/page/case/case_tmx.html' }
           ]
         }
       ]

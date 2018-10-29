@@ -21,13 +21,13 @@ module.exports = {
     filename: 'js/[name].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', 'png'],
     alias: {
       '@': resolve('./src'),
       'root': resolve('./'),
       'img' : resolve('./src/assets/img')
     },
-    modules : ['node_modules', resolve('./src/scss')]
+    modules : ['node_modules', resolve('./src/assets/img')]
   },
   module: {
     rules: [

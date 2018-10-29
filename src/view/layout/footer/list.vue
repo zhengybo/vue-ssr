@@ -2,8 +2,9 @@
   <div class="footer-items">
     <div class="footer-items-title">{{datas.title}}</div>
     <div class="footer-item" v-for="item in datas.list">
-      <icon v-if="item.icon"></icon>
-      <span>{{item.name}}</span>
+      <img class="footer-icon" v-if="item.icon" :src="item.icon" alt="">
+      <span v-if="!item.link">{{item.name}}</span>
+      <a target="__blank" v-else :href="item.link">{{item.name}}</a>
     </div>
   </div>
 </template>
@@ -49,6 +50,18 @@ export default {
       color: #aeaeae;
       font-size: 14px;
       margin-top: 20px;
+
+      a{
+        color: inherit;
+      }
+    }
+
+    .footer-icon{
+      width: 14px;
+      height: 14px;
+      margin-right: 2px;
+      display: inline-block;
+      transform: translateY(1px);
     }
   }
 </style>

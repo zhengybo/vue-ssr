@@ -8,7 +8,7 @@
       :datas="item"></list>
       <img class="erCode" :src="require('img/ercode.png')" alt="">
     </div>
-    <div class="center ICP"> 川公网安备 51019002999742号泸ICP备16014043号-10 </div>
+    <div class="center ICP"> xxxxxxxxxxxxxxxxxxxxxx </div>
   </div>
 </template>
 
@@ -19,27 +19,27 @@ export default {
     return {
       lists : [
         {
-          title : '上海总公司',
+          title : 'xxxxx',
           list : [
             { name : '李先生' },
-            { name : '021-53890000' },
-            { name : '上海市徐汇区田林路200号B座2楼钛马号' }
+            { name : '021-5xxxx' },
+            { name : 'xxxxxxxxxx' }
           ]
         },
         {
-          title : '成都分公司',
+          title : 'xxxxx',
           list : [
             { name : '赵女士' },
-            { name : '028-62350288' },
-            { name : '成都市高新区天府三街199号太平洋保险金融大厦B区11楼' }
+            { name : '028-62xxxx' },
+            { name : 'xxxxxxxxxx' }
           ]
         },
         {
-          title : '关于钛马',
+          title : '关于xxxxxx',
           list : [
-            { name : '钛马介绍' },
-            { name : '关于钛马' },
-            { name : '钛马星' }
+            { name : 'xxxxxx介绍' },
+            { name : '关于xxxxxx' },
+            { name : 'xxxxxx星' }
           ]
         }
       ]

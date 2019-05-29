@@ -5,7 +5,7 @@
       <img class="bg-01" :src="require('img/lingxing.jpg')" alt=""><img class="bg-02" :src="require('img/tu.jpg')" alt="">
     </div>
     <div class="page-01-content">
-      <span class="page-01-title">钛车宝 多源、整合、车管专家</span>
+      <span class="page-01-title">xxxxxx 多源、整合、车管专家</span>
       <span class="page-01-sub-title">多源头硬件接入、多类型数据整合、可视化车辆管理</span>
     </div>
   </div>
